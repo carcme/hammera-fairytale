@@ -128,7 +128,7 @@ export const TourData = {
         alt: "Brandenburg fairy tale forest path to horizon",
 
         hasHint: false,
-        hintImg: "no-image.jpg",
+        hintImg: "",
         hintAlt: "",
         hintText: "Walk straight ahead.",
       },
@@ -254,7 +254,7 @@ export const TourData = {
         hintAlt:
           "Brandenburg fairy tale forest path with a clearing to the left",
         hintText:
-          "There is a small clearing to the left of the path with an old over turned tree root. This is the where the basket should be. If the basket is full, please discretely empty it (out of sight of future adventurers)",
+          "A basket should be to the left of the path behind an old tree root. If the basket is full, please empty it out of sight of future adventurers.",
       },
       {
         title: "Epilog",
@@ -535,7 +535,7 @@ export const TourData = {
         hintAlt:
           "Brandenburg Maerchenwald Wandern Pfad mit einer Lichtung auf der linken Seite",
         hintText:
-          "Auf der linken Seite des Weges befindet sich eine kleine Lichtung mit einer umgedrehten alten Baumwurzel. Hier sollte der Korb zu finden sein. Sollte der Korb voll sein, seid so lieb und leert ihn diskret, wenn keines der Kinder zuschaut. Eure Nachfolger werden es euch danken",
+          "Ein Korb sollte links des Weges hinter einer alten Baumwurzel stehen. Wenn der Korb voll ist, leeren Sie ihn bitte außerhalb der Sichtweite künftiger Abenteurer.",
       },
       {
         title: "Epilog",

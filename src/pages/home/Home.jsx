@@ -79,7 +79,7 @@ export const Home = () => {
 
           <div className="italic flex  gap-2">
             <div className="justify-center items-center flex gap-2 p-4">
-              <FaSignal size={25} className="mx-4 " />
+              <FaSignal size={25} className="" />
             </div>
             {globalState.lang === "en" && (
               <p>
@@ -98,12 +98,12 @@ export const Home = () => {
           </div>
           <hr className="my-3 text-brown-200 mx-8" />
 
-          <div className="flex justify-between m-4">
+          <div className="flex justify-between ms-2 me-2">
             <div className="">
               <EbookDropDown toggle={toggleDropdown} isOpen={isOpen} />
             </div>
             <div
-              className="flex justify-center me-4"
+              className="flex justify-center"
               role="toolbar"
               aria-label="Toolbar with button groups"
             >
@@ -111,7 +111,7 @@ export const Home = () => {
                 to={"/tour"}
                 type="button"
                 aria-label="start the tour"
-                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-md text-sm px-8 py-2.5 me-2 mb-2 shadow-lg"
+                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-md text-sm px-6 xs:px-8 py-2.5 me-2 mb-2 shadow-lg"
               >
                 {data.startBtn}
               </Link>

@@ -13,15 +13,23 @@ import { getAssetURL } from "../../lib/image-util";
 import Interactive from "../../components/interactive";
 
 export const Tour = () => {
+  const [showHint, setShowHint] = useState(false);
   const [page, setPage] = useState(0);
   const globalState = useContext(GlobalStateContext);
   const data = getLanguage(globalState.lang, TourData);
   const tour = data.tour[page];
   const navigate = useNavigate();
 
-  const image = getAssetURL(tour.image);
-  const hintImg = getAssetURL(tour.hintImg);
+  const Img = getAssetURL(tour.image);
+  const hintImg = tour.hintImg === "" ? Img : getAssetURL(tour.hintImg);
   const hasHint = tour.hasHint;
+
+  const toggleHint = () => {
+    setShowHint(!showHint);
+  };
+  const hideHint = () => {
+    if (showHint) setShowHint(false);
+  };
 
   const handleNext = () => {
     if (page === 13) {
@@ -43,46 +51,31 @@ export const Tour = () => {
   return (
     <>
       <BaseLayout>
-        <div className="justify-center items-center flex flex-col bg-bisque pt-2 px-2">
+        <div
+          className="justify-center items-center flex flex-col bg-bisque pt-2 px-2"
+          onClick={hideHint}
+        >
           <div className="max-w-[600px]">
             <div className="relative justify-center items-center group">
               <img
-                src={image}
+                src={showHint ? hintImg : Img}
                 alt={tour.alt}
                 loading="lazy"
-                className={`object-cover w-full h-full rounded-xl shadow-lg transition-transform duration-300 transform opacity-100 ${
-                  hasHint ? "group-hover:opacity-0" : "group-hover:opacity-30"
-                }`}
+                onClick={toggleHint}
+                className={`object-cover w-full h-80 xs:h-96 rounded-xl shadow-lg transition-transform duration-300 transform ${
+                  showHint && !hasHint ? "opacity-30" : "opacity-100"
+                } `}
               />
-              {/* Show no hint available text */}
-              {!hasHint && (
+              {/* Show 'no hint available' text */}
+              {showHint && !hasHint && (
                 <p
-                  className={`absolute bottom-2 right-2  text-3xl text-center items-center justify-center transition-transform duration-300 transform opacity-0 text-black ${
-                    hasHint ? "" : "group-hover:opacity-100"
-                  }`}
+                  className={`absolute bottom-2 right-2  text-3xl text-center items-center justify-center transition-transform duration-300 transform  text-black `}
                 >
                   {data.noHintText}
                 </p>
               )}
-
-              {/* hasHint, show the text */}
-              {hasHint && (
-                <p className="absolute right-0 text-sm transition-transform duration-300 transform group-hover:opacity-0 opacity-100">
-                  {data.revealHint}
-                </p>
-              )}
-
-              {hasHint && (
-                <img
-                  src={hintImg}
-                  alt={tour.alt}
-                  loading="lazy"
-                  className="object-cover w-full h-full rounded-xl shadow-lg absolute top-0 left-0 opacity-0 transition-opacity duration-300 transform group-hover:opacity-100"
-                />
-              )}
-
-              <p className="absolute right-0 text-sm opacity-0 transition-opacity duration-300 transform group-hover:opacity-100 ">
-                {tour.hintText.length > 0 ? tour.hintText : ""}
+              <p className="absolute right-0 text-sm transition-transform duration-300 transform ">
+                {showHint ? tour.hintText : data.revealHint}
               </p>
 
               <LangBtn clsName="absolute top-0 right-0 p-4 rounded-full  text-white" />
@@ -92,7 +85,7 @@ export const Tour = () => {
               <h4 className="leading-8 text-xl font-bold">{tour.title}</h4>
               {tour.intro &&
                 tour.intro.map((item, index) => (
-                  <p key={index} className="py-2 tracking-wide leading-6 ">
+                  <p key={index} className="py-2 tracking-wide leading-7 ">
                     {item}
                   </p>
                 ))}
@@ -104,7 +97,7 @@ export const Tour = () => {
               {tour.body.map((item, index) => (
                 <p
                   key={index}
-                  className="py-2 tracking-wide leading-6 "
+                  className="py-2 tracking-wide leading-7"
                   dangerouslySetInnerHTML={{ __html: item }}
                 ></p>
               ))}

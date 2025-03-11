@@ -12,7 +12,7 @@ const EbookDropDown = ({ toggle, isOpen }) => {
       <div>
         <button
           onClick={toggle}
-          className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-md text-sm px-8 py-2.5 inline-flex justify-center shadow-lg"
+          className="text-white bg-brown-700 hover:bg-brown-800 focus:bg-brown-800 font-medium rounded-md text-sm px-4 xs:px-8 py-2.5 inline-flex justify-center shadow-lg"
         >
           eBook Download
           <svg
@@ -42,7 +42,7 @@ const EbookDropDown = ({ toggle, isOpen }) => {
             <a
               href="/Hammera_de.epub"
               _target="blank"
-              className="block px-4 py-2 text-sm hover:bg-brown-500 hover:text-white"
+              className="block px-4 py-2 text-sm hover:bg-brown-500 hover:text-white active:bg-brown-500 active:text-white"
               role="menuitem"
               onClick={toggle}
             >
@@ -51,7 +51,7 @@ const EbookDropDown = ({ toggle, isOpen }) => {
             <a
               href="/Hammera_en.epub"
               _target="blank"
-              className="block px-4 py-2 text-sm hover:bg-brown-500 hover:text-white"
+              className="block px-4 py-2 text-sm hover:bg-brown-500 hover:text-white active:bg-brown-500 active:text-white"
               role="menuitem"
               onClick={toggle}
             >
