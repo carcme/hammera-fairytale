@@ -38,6 +38,7 @@ export const Tour = () => {
     if (globalState.page === 13) {
       navigate("/");
     } else {
+      setTour(data.tour[globalState.page + 1]);
       globalDispatch({ type: "NEXT_PAGE" });
     }
   };
@@ -45,13 +46,13 @@ export const Tour = () => {
     if (globalState.page === 0) {
       navigate("/");
     } else {
+      setTour(data.tour[globalState.page - 1]);
       globalDispatch({ type: "PREV_PAGE" });
     }
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setTour(data.tour[globalState.page]);
   }, [globalState.page]);
 
   return (
