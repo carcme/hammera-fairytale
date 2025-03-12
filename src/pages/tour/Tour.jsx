@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LangBtn from "../../components/layout/navbar/langBtn";
 import BaseLayout from "../../components/layout/BaseLayout";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { TourData } from "../../json";
 
 import {
-  GlobalDispatchContext,
   GlobalStateContext,
   getLanguage,
 } from "../../context/GlobalContextProvider";
@@ -14,10 +13,9 @@ import { getAssetURL } from "../../lib/image-util";
 import Interactive from "../../components/interactive";
 
 export const Tour = () => {
-  const globalDispatch = useContext(GlobalDispatchContext);
   const globalState = useContext(GlobalStateContext);
   const [showHint, setShowHint] = useState(false);
-  const [page, setPage] = useState(globalState.page);
+  const [page, setPage] = useState(0);
   const data = getLanguage(globalState.lang, TourData);
   const tour = data.tour[page];
   const navigate = useNavigate();
@@ -38,7 +36,6 @@ export const Tour = () => {
       navigate("/");
     } else {
       setPage((next) => next + 1);
-      globalDispatch({ type: "NEXT_PAGE" });
     }
   };
   const handlePrev = () => {
@@ -46,7 +43,6 @@ export const Tour = () => {
       navigate("/");
     } else {
       setPage((prev) => prev - 1);
-      globalDispatch({ type: "PREV_PAGE" });
     }
   };
 
@@ -122,7 +118,7 @@ export const Tour = () => {
                 className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-l-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none cursor-pointer"
                 onClick={handlePrev}
               >
-                {globalState.page === 0 ? "Home" : data.btnPrev}
+                {page === 0 ? "Home" : data.btnPrev}
               </div>
               <div
                 type="button"
@@ -130,7 +126,7 @@ export const Tour = () => {
                 className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-r-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none cursor-pointer"
                 onClick={handleNext}
               >
-                {globalState.page === 13 ? "Home" : data.btnNext}
+                {page === 13 ? "Home" : data.btnNext}
               </div>
               <div className="-translate-y-1">
                 <LangBtn clsName=" px-2 py-3 text-white" />
