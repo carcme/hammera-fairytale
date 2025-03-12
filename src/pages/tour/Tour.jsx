@@ -19,7 +19,7 @@ export const Tour = () => {
 
   const globalState = useContext(GlobalStateContext);
   const data = getLanguage(globalState.lang, TourData);
-  const tour = data.tour[globalState.page];
+  const [tour, setTour] = useState(data.tour[globalState.page]);
 
   const navigate = useNavigate();
 
@@ -51,6 +51,7 @@ export const Tour = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTour(data.tour[globalState.page]);
   }, [globalState.page]);
 
   return (
