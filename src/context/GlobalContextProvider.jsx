@@ -5,7 +5,7 @@ export const GlobalDispatchContext = React.createContext();
 
 const initialState = {
   lang: "en",
-  welcome: true,
+  page: 0,
 };
 
 export function getLanguage(lang, script) {
@@ -24,10 +24,16 @@ function reducer(state, action) {
         lang: state.lang === "en" ? "de" : "en",
       };
     }
-    case "TOGGLE_WELCOME": {
+    case "NEXT_PAGE": {
       return {
         ...state,
-        welcome: false,
+        page: state.page++,
+      };
+    }
+    case "PREV_PAGE": {
+      return {
+        ...state,
+        page: state.page--,
       };
     }
     default:

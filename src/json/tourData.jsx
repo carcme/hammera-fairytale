@@ -2,6 +2,9 @@ import img from "../assets/Brandenburg-Maerchenwald-Wandern-picnic-table-s.jpg";
 
 export const TourData = {
   en: {
+    helmetTitle: "Brandenburg Fairytale Forest Hiking",
+    meta: "Discover the magic of the Brandenburg Forest on a captivating fairy trail hike. Wander through enchanted woodlands, find directions hidden in plain sight and immerse yourself in nature’s wonder on this whimsical adventure.",
+
     btnNext: "Next",
     btnPrev: "Back",
     revealHint: "Touch image to reveal hint",
@@ -278,6 +281,9 @@ export const TourData = {
     ],
   },
   de: {
+    helmetTitle: "Brandenburg Märchenwald Wandern",
+    meta: "Entdecken Sie den Zauber des Brandenburger Waldes auf einer bezaubernden Märchenwanderung. Wandern Sie durch verwunschene Wälder, finden Sie versteckte Wegweiser und tauchen Sie ein in die Wunder der Natur bei diesem skurrilen Abenteuer.",
+
     btnNext: "Weiter",
     btnPrev: "Zurück",
     revealHint: "Tippen Sie auf das Bild, um einen Hinweis zu erhalten.",

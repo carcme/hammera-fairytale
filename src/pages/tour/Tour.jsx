@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { TourData } from "../../json";
 
 import {
+  GlobalDispatchContext,
   GlobalStateContext,
   getLanguage,
 } from "../../context/GlobalContextProvider";
@@ -14,14 +15,17 @@ import Interactive from "../../components/interactive";
 
 export const Tour = () => {
   const [showHint, setShowHint] = useState(false);
-  const [page, setPage] = useState(0);
+  const globalDispatch = useContext(GlobalDispatchContext);
+
   const globalState = useContext(GlobalStateContext);
   const data = getLanguage(globalState.lang, TourData);
-  const tour = data.tour[page];
+  const tour = data.tour[globalState.page];
+
   const navigate = useNavigate();
 
   const Img = getAssetURL(tour.image);
   const hintImg = tour.hintImg === "" ? Img : getAssetURL(tour.hintImg);
+  console.log("🚀 ~ Tour ~ globalState.page:", globalState.page);
   const hasHint = tour.hasHint;
 
   const toggleHint = () => {
@@ -32,24 +36,28 @@ export const Tour = () => {
   };
 
   const handleNext = () => {
-    if (page === 13) {
+    if (globalState.page === 13) {
       navigate("/");
     } else {
-      setPage((next) => next + 1);
+      globalDispatch({ type: "NEXT_PAGE" });
     }
   };
   const handlePrev = () => {
-    if (page === 0) {
+    if (globalState.page === 0) {
       navigate("/");
-    } else setPage((prev) => prev - 1);
+    } else {
+      globalDispatch({ type: "PREV_PAGE" });
+    }
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [page]);
+  }, [globalState.page]);
 
   return (
     <>
+      <title>{data.helmetTitle}</title>
+      <meta name="description" content={data.meta} />{" "}
       <BaseLayout>
         <div
           className="justify-center items-center flex flex-col bg-bisque pt-2 px-2"
@@ -114,7 +122,7 @@ export const Tour = () => {
                 className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-l-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
                 onClick={handlePrev}
               >
-                {page === 0 ? "Home" : data.btnPrev}
+                {globalState.page === 0 ? "Home" : data.btnPrev}
               </div>
               <div
                 type="button"
@@ -122,7 +130,7 @@ export const Tour = () => {
                 className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-r-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-non"
                 onClick={handleNext}
               >
-                {page === 13 ? "Home" : data.btnNext}
+                {globalState.page === 13 ? "Home" : data.btnNext}
               </div>
               <div className="-translate-y-1">
                 <LangBtn clsName=" px-2 py-3 text-white" />

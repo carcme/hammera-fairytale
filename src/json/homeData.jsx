@@ -1,5 +1,8 @@
 export const HomeData = {
   en: {
+    helmetTitle: "Brandenburg Fairytale Forest Hiking",
+    meta: "Discover the magic of the Brandenburg Forest on a captivating fairy trail hike. Wander through enchanted woodlands, find directions hidden in plain sight and immerse yourself in nature’s wonder on this whimsical adventure.",
+
     title: "Hammera and the wicked Hansemichel",
     intro: [
       "An interactive journey in which your little ones will feel like heroes! Only with their help can the princess be saved. Look forward to a varied hike that will fly by.",
@@ -10,6 +13,9 @@ export const HomeData = {
     startBtn: "Start",
   },
   de: {
+    helmetTitle: "Brandenburg Märchenwald Wandern",
+    meta: "Entdecken Sie den Zauber des Brandenburger Waldes auf einer bezaubernden Märchenwanderung. Wandern Sie durch verwunschene Wälder, finden Sie versteckte Wegweiser und tauchen Sie ein in die Wunder der Natur bei diesem skurrilen Abenteuer.",
+
     title: "Hammera und der böse Hansemichel",
     intro: [
       "Eine interaktive Reise, bei der eure Kleinen ganz groß rauskommen! Denn nur mit ihrer Hilfe kann die Prinzessin gerettet werden. Freut euch auf eine abwechslungsreiche Wanderung, die wie im Fluge vergehen wird..",

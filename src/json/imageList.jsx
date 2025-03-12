@@ -1,0 +1,33 @@
+export const preloadSrcList = [
+  "Brandenburg-Maerchenwald-Wandern-picnic-table-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-forest-path-left-bend-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-over-grown-log-by-path-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-sign-by-side-of-path-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-forest-path-cross-road-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-forest-path-to-horizon-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-hunter-stand-zoomed-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-forest-path-t-junction-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-dead-tree-in-forest-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-hunter-box-landscape-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-cross-road-forest-fire-hydrant-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-broken-log-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-tree-stump-in-forest-s.jpg",
+  "Brandenburg-Maerchenwald-Wandern-medieval-fridge-larder-s.jpg",
+];
+
+// export const preloadSrcList = [
+//   "../assets/Brandenburg-Maerchenwald-Wandern-picnic-table-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-forest-path-left-bend-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-over-grown-log-by-path-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-sign-by-side-of-path-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-forest-path-cross-road-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-forest-path-to-horizon-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-hunter-stand-zoomed-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-forest-path-t-junction-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-dead-tree-in-forest-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-hunter-box-landscape-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-cross-road-forest-fire-hydrant-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-broken-log-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-tree-stump-in-forest-s.jpg",
+//   "../assets/Brandenburg-Maerchenwald-Wandern-medieval-fridge-larder-s.jpg",
+// ];
