@@ -14,13 +14,12 @@ import { getAssetURL } from "../../lib/image-util";
 import Interactive from "../../components/interactive";
 
 export const Tour = () => {
-  const [showHint, setShowHint] = useState(false);
   const globalDispatch = useContext(GlobalDispatchContext);
-
   const globalState = useContext(GlobalStateContext);
+  const [showHint, setShowHint] = useState(false);
+  const [page, setPage] = useState(globalState.page);
   const data = getLanguage(globalState.lang, TourData);
-  const [tour, setTour] = useState(data.tour[globalState.page]);
-
+  const tour = data.tour[page];
   const navigate = useNavigate();
 
   const Img = getAssetURL(tour.image);
@@ -35,25 +34,25 @@ export const Tour = () => {
   };
 
   const handleNext = () => {
-    if (globalState.page === 13) {
+    if (page === 13) {
       navigate("/");
     } else {
-      setTour(data.tour[globalState.page + 1]);
+      setPage((next) => next + 1);
       globalDispatch({ type: "NEXT_PAGE" });
     }
   };
   const handlePrev = () => {
-    if (globalState.page === 0) {
+    if (page === 0) {
       navigate("/");
     } else {
-      setTour(data.tour[globalState.page - 1]);
+      setPage((prev) => prev - 1);
       globalDispatch({ type: "PREV_PAGE" });
     }
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [globalState.page]);
+  }, [page]);
 
   return (
     <>
