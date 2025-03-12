@@ -11,7 +11,7 @@ const LangBtn = ({ clsName }) => {
   return (
     <>
       <button
-        className={clsName}
+        className={clsName + " cursor-pointer"}
         aria-label="language"
         onClick={() => {
           globalDispatch({ type: "TOGGLE_LANG" });

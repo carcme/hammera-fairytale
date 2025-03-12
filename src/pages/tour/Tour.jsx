@@ -25,7 +25,6 @@ export const Tour = () => {
 
   const Img = getAssetURL(tour.image);
   const hintImg = tour.hintImg === "" ? Img : getAssetURL(tour.hintImg);
-  console.log("🚀 ~ Tour ~ globalState.page:", globalState.page);
   const hasHint = tour.hasHint;
 
   const toggleHint = () => {
@@ -63,14 +62,14 @@ export const Tour = () => {
           className="justify-center items-center flex flex-col bg-bisque pt-2 px-2"
           onClick={hideHint}
         >
-          <div className="max-w-[600px]">
+          <div className="max-w-[600px] min-h-screen">
             <div className="relative justify-center items-center group">
               <img
                 src={showHint ? hintImg : Img}
                 alt={tour.alt}
                 loading="lazy"
                 onClick={toggleHint}
-                className={`object-cover w-full h-80 xs:h-96 rounded-xl shadow-lg transition-transform duration-300 transform ${
+                className={`object-cover w-full h-80 xs:h-96 rounded-xl shadow-lg transition-transform duration-300 transform cursor-auto ${
                   showHint && !hasHint ? "opacity-30" : "opacity-100"
                 } `}
               />
@@ -119,7 +118,7 @@ export const Tour = () => {
               <div
                 type="button"
                 aria-label="previous tour step"
-                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-l-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-l-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none cursor-pointer"
                 onClick={handlePrev}
               >
                 {globalState.page === 0 ? "Home" : data.btnPrev}
@@ -127,7 +126,7 @@ export const Tour = () => {
               <div
                 type="button"
                 aria-label="next tour step"
-                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-r-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-non"
+                className="text-white bg-brown-700 hover:bg-brown-800 focus:ring focus:ring-brown-500 font-medium rounded-r-md text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none cursor-pointer"
                 onClick={handleNext}
               >
                 {globalState.page === 13 ? "Home" : data.btnNext}

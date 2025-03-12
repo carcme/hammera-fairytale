@@ -51,7 +51,7 @@ export const Home = () => {
                 src={forstryImg}
                 loading="lazy"
                 className=" object-cover w-full h-full rounded-xl shadow-lg"
-                alt="Brandenburg fairy tale OberförsterglobalState.pageei Hammer"
+                alt="Brandenburg fairy tale Oberförsterei Hammer"
               />
               <div className="absolute top-0 right-0 max-w-[600px] bg-transparent">
                 <div className="p-4">
@@ -68,7 +68,7 @@ export const Home = () => {
                 <FaChild />
                 {globalState.lang === "en" ? "1-99 years" : "1-99 Jahre"}
               </div>
-              <div className="flex gap-2 xxs:items-centglobalState.pageer w-32 xxs:w-auto justify-between xs:justify-center">
+              <div className="flex gap-2 xxs:items-center w-32 xxs:w-auto justify-between xs:justify-center">
                 <FaMapMarkerAlt /> <p>&lt; 2km</p>
               </div>
             </div>
